@@ -671,7 +671,28 @@
       .section-title:after{width:34px}
     }
 
-  </style>
+  
+.task{display:grid;grid-template-columns:auto 1fr;align-items:start;gap:10px}
+.task>input{margin-top:16px}.task>label{padding-top:12px}
+.task-lesson{grid-column:2;width:100%;margin:0 0 10px;border:1px solid #d9e4ec;border-radius:15px;background:#f8fbfd;overflow:hidden}
+.task-lesson summary{list-style:none;display:flex;justify-content:space-between;gap:12px;padding:11px 13px;color:#315d82;font-weight:900;cursor:pointer}
+.task-lesson summary::-webkit-details-marker{display:none}
+.task-lesson summary::after{content:"Open lesson +";font-size:.75rem;padding:5px 8px;border-radius:999px;background:#e7f0f7;color:#426b8e}
+.task-lesson[open] summary::after{content:"Close −"}
+.mini-lesson-body{padding:5px 14px 15px;border-top:1px solid #dfe8ee}
+.mini-lesson-body h4{margin:14px 0 8px;color:#234d6f}
+.mini-lesson-copy{color:#425b70;line-height:1.65;font-size:.95rem}
+.memory-heading{margin:17px 0 8px;color:#294f6e;font-size:1rem}
+.memory-question{margin:12px 0;padding:12px;border:1px solid #dce5ec;border-radius:13px;background:#fff}
+.memory-question strong{display:block;margin-bottom:8px;color:#294f6e}
+.mini-choice{display:block;margin:6px 0;padding:8px 9px;border:1px solid #e0e7ed;border-radius:10px;background:#fbfcfd;cursor:pointer}
+.mini-choice:hover{background:#eef5fa}.mini-choice input{margin-right:7px;accent-color:#4f7ea8}
+.check-memory{margin-top:10px;padding:9px 12px;border:0;border-radius:10px;background:#315f86;color:#fff;font-weight:900;cursor:pointer}
+.memory-feedback{display:inline-block;margin-left:10px;font-weight:900;font-size:.88rem}
+.memory-feedback.good{color:#3f7b6d}.memory-feedback.bad{color:#a06060}
+.task.lesson-finished{border-color:#bfd8cf;background:linear-gradient(135deg,#f3faf7,#fff)}
+
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to main content</a>
@@ -801,10 +822,66 @@
           <div><div class="week-num">Week 1</div><h3>Inside the human body</h3></div>
           <div class="time">3–4 hours</div>
         </div>
-        <div class="task"><input class="tracker" id="t1" type="checkbox"><label for="t1"><strong>Read 40–60 pages of <em>Human Body Theater</em></strong><small>Choose two body systems and create a one-page illustrated map connecting them.</small></label></div>
-        <div class="task"><input class="tracker" id="t2" type="checkbox"><label for="t2"><strong>Watch two short human-body videos</strong><small>Start with the TED-Ed heart and blood-pressure videos in the resource library.</small></label></div>
-        <div class="task"><input class="tracker" id="t3" type="checkbox"><label for="t3"><strong>Run the safe pulse investigation</strong><small>Measure your own resting pulse and recovery after gentle activity. Follow the safety directions below.</small></label></div>
-        <div class="task"><input class="tracker" id="t4" type="checkbox"><label for="t4"><strong>Write three “I wonder…” questions</strong><small>Example: “Why does my breathing stay fast after my heart begins slowing down?”</small></label></div>
+        <div class="task" data-task-id="t1">
+      <input class="tracker" id="t1" type="checkbox">
+      <label for="t1"><strong>Read 40–60 pages of <em>Human Body Theater</em></strong><small>Choose two body systems and create a one-page illustrated map connecting them.</small></label>
+      <details class="task-lesson">
+        <summary>Mini lesson: Human Body Theater: Body systems</summary>
+        <div class="mini-lesson-body">
+          <h4>Human Body Theater: Body systems</h4>
+          <div class="mini-lesson-copy">Read the body-systems pages in <em>Human Body Theater</em>. An organ system is a group of organs that work together. The respiratory system brings oxygen into the lungs. The circulatory system carries oxygen and nutrients through the body. The digestive system breaks food into nutrients, and muscles use oxygen and nutrients for movement.</div>
+          <h5 class="memory-heading">What do you remember?</h5>
+          <div class="memory-question" data-correct="1"><strong>1. What is an organ system?</strong><label class="mini-choice"><input type="radio" name="t1_q0" value="0">A single cell</label><label class="mini-choice"><input type="radio" name="t1_q0" value="1">A group of organs that work together</label><label class="mini-choice"><input type="radio" name="t1_q0" value="2">A type of medicine</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>2. Which system brings oxygen into the lungs?</strong><label class="mini-choice"><input type="radio" name="t1_q1" value="0">Respiratory</label><label class="mini-choice"><input type="radio" name="t1_q1" value="1">Digestive</label><label class="mini-choice"><input type="radio" name="t1_q1" value="2">Skeletal</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>3. What does the circulatory system carry?</strong><label class="mini-choice"><input type="radio" name="t1_q2" value="0">Oxygen and nutrients</label><label class="mini-choice"><input type="radio" name="t1_q2" value="1">Only water</label><label class="mini-choice"><input type="radio" name="t1_q2" value="2">Bones</label><div class="memory-feedback"></div></div>
+          <button type="button" class="check-memory">Check all 3 answers</button>
+          <span class="memory-feedback overall" aria-live="polite"></span>
+        </div>
+      </details>
+    </div>
+        <div class="task" data-task-id="t2">
+      <input class="tracker" id="t2" type="checkbox">
+      <label for="t2"><strong>Watch two short human-body videos</strong><small>Start with the TED-Ed heart and blood-pressure videos in the resource library.</small></label>
+      <details class="task-lesson">
+        <summary>Mini lesson: Heart and blood-pressure videos</summary>
+        <div class="mini-lesson-body">
+          <h4>Heart and blood-pressure videos</h4>
+          <div class="mini-lesson-copy">Use the assigned heart and blood-pressure videos. The heart is a muscular pump. Arteries usually carry blood away from the heart, and veins usually return blood to it. Blood pressure is the force of blood pushing against blood-vessel walls.</div>
+          <h5 class="memory-heading">What do you remember?</h5>
+          <div class="memory-question" data-correct="0"><strong>1. What is the heart&#x27;s main job?</strong><label class="mini-choice"><input type="radio" name="t2_q0" value="0">Pump blood</label><label class="mini-choice"><input type="radio" name="t2_q0" value="1">Digest food</label><label class="mini-choice"><input type="radio" name="t2_q0" value="2">Make bones</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>2. Which vessels usually carry blood away from the heart?</strong><label class="mini-choice"><input type="radio" name="t2_q1" value="0">Arteries</label><label class="mini-choice"><input type="radio" name="t2_q1" value="1">Veins</label><label class="mini-choice"><input type="radio" name="t2_q1" value="2">Nerves</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>3. What is blood pressure?</strong><label class="mini-choice"><input type="radio" name="t2_q2" value="0">Force against vessel walls</label><label class="mini-choice"><input type="radio" name="t2_q2" value="1">Air in the lungs</label><label class="mini-choice"><input type="radio" name="t2_q2" value="2">Body temperature</label><div class="memory-feedback"></div></div>
+          <button type="button" class="check-memory">Check all 3 answers</button>
+          <span class="memory-feedback overall" aria-live="polite"></span>
+        </div>
+      </details>
+    </div>
+        <div class="task" data-task-id="t3">
+      <input class="tracker" id="t3" type="checkbox">
+      <label for="t3">Read the heart and circulation section in <em>Human Body Theater</em><span class="xp-chip">+25 XP</span><small>Focus on the heart, blood, arteries, veins, and capillaries.</small></label>
+      <details class="task-lesson">
+        <summary>Mini lesson: Human Body Theater: Circulation</summary>
+        <div class="mini-lesson-body">
+          <h4>Human Body Theater: Circulation</h4>
+          <div class="mini-lesson-copy">Read the heart and circulation section in <em>Human Body Theater</em>. The heart's chambers and valves help blood move in the correct direction. Arteries usually carry blood away from the heart. Veins usually return it. Capillaries allow oxygen, nutrients, and wastes to move between blood and tissues.</div>
+          <h5 class="memory-heading">What do you remember?</h5>
+          <div class="memory-question" data-correct="0"><strong>1. What helps blood move in the correct direction?</strong><label class="mini-choice"><input type="radio" name="t3_q0" value="0">Heart chambers and valves</label><label class="mini-choice"><input type="radio" name="t3_q0" value="1">The stomach</label><label class="mini-choice"><input type="radio" name="t3_q0" value="2">The skeleton</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>2. Which vessels usually return blood to the heart?</strong><label class="mini-choice"><input type="radio" name="t3_q1" value="0">Veins</label><label class="mini-choice"><input type="radio" name="t3_q1" value="1">Arteries</label><label class="mini-choice"><input type="radio" name="t3_q1" value="2">Bronchi</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>3. What happens in capillaries?</strong><label class="mini-choice"><input type="radio" name="t3_q2" value="0">Materials move between blood and tissues</label><label class="mini-choice"><input type="radio" name="t3_q2" value="1">Food is chewed</label><label class="mini-choice"><input type="radio" name="t3_q2" value="2">Bones are formed</label><div class="memory-feedback"></div></div>
+          <button type="button" class="check-memory">Check all 3 answers</button>
+          <span class="memory-feedback overall" aria-live="polite"></span>
+        </div>
+      </details>
+    </div>
+        <div class="task" data-task-id="t4">
+      <input class="tracker" id="t4" type="checkbox">
+      <label for="t4"><strong>Write three “I wonder…” questions</strong><small>Example: “Why does my breathing stay fast after my heart begins slowing down?”</small></label>
+      <details class="task-lesson">
+        <summary>Mini lesson: Questions that grow from reading</summary>
+        <div class="mini-lesson-body">
+          <h4>Questions that grow from reading</h4>
+          <div class="mini-lesson-copy">After reading a body-system chapter, write questions about ideas the text introduced but did not fully explain. A strong question is specific, clear, and connected to the reading. For example: “How does the body know when to make breathing faster?”</div>
+          <h5 class="memory-heading">What do you remember?</h5>
+          <div class="memory-question" data-correct="0"><strong>1. Where should an &#x27;I wonder&#x27; question come from?</strong><label class="mini-choice"><input type="radio" name="t4_q0" value="0">The reading</label><label class="mini-choice"><input type="radio" name="t4_q0" value="1">A random topic</label><label class="mini-choice"><input type="radio" name="t4_q0" value="2">Only the title</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>2. What makes a question strong?</strong><label class="mini-choice"><input type="radio" name="t4_q1" value="0">Specific and connected to the text</label><label class="mini-choice"><input type="radio" name="t4_q1" value="1">Unrelated and vague</label><label class="mini-choice"><input type="radio" name="t4_q1" value="2">Copied from someone else</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>3. Which question fits a heart-and-lungs reading?</strong><label class="mini-choice"><input type="radio" name="t4_q2" value="0">How does the body know when to breathe faster?</label><label class="mini-choice"><input type="radio" name="t4_q2" value="1">Why are pencils yellow?</label><label class="mini-choice"><input type="radio" name="t4_q2" value="2">Who built the tallest tower?</label><div class="memory-feedback"></div></div>
+          <button type="button" class="check-memory">Check all 3 answers</button>
+          <span class="memory-feedback overall" aria-live="polite"></span>
+        </div>
+      </details>
+    </div>
       </article>
 
       <article class="card week" data-week="2">
@@ -812,10 +889,84 @@
           <div><div class="week-num">Week 2</div><h3>Meet the healthcare team</h3></div>
           <div class="time">3–5 hours</div>
         </div>
-        <div class="task"><input class="tracker" id="t5" type="checkbox"><label for="t5"><strong>Explore six careers</strong><small>Use the NIH Health Quest career videos and the career table on this page.</small></label></div>
-        <div class="task"><input class="tracker" id="t6" type="checkbox"><label for="t6"><strong>Interview one health professional</strong><small>Ask a parent or guardian to help arrange a 20-minute conversation.</small></label></div>
-        <div class="task"><input class="tracker" id="t7" type="checkbox"><label for="t7"><strong>Create a career scorecard</strong><small>Rate each career on people contact, science, schedule, training, teamwork and your curiosity.</small></label></div>
-        <div class="task"><input class="tracker" id="t8" type="checkbox"><label for="t8"><strong>Watch a healthcare careers video</strong><small>Notice how many hospital jobs are not physicians.</small></label></div>
+        <div class="task" data-task-id="t5">
+      <input class="tracker" id="t5" type="checkbox">
+      <label for="t5"><strong>Explore six careers</strong>
+    <small>
+      Open the NIH career resource and choose exactly six careers:
+      one physician or nurse role, one therapy role, one laboratory or research role,
+      one technology or engineering role, one public-health role, and one career of your choice.
+      For every career, record: main job, usual workplace, education needed,
+      amount of patient contact, one skill used, and one fact that surprised you.
+      Then rank your top three and explain why.
+    </small></label>
+      <details class="task-lesson">
+        <summary>Mini lesson: NIH Health Quest careers</summary>
+        <div class="mini-lesson-body">
+          <h4>NIH Health Quest careers</h4>
+          <div class="mini-lesson-copy">
+      <strong>Complete these steps:</strong>
+      <ol>
+        <li>Open the NIH career resource from the Resource Library.</li>
+        <li>Select six careers from six different categories: clinical care, therapy, research/laboratory, technology/engineering, public health, and one free choice.</li>
+        <li>For each career, write its main job, workplace, required education, patient contact, one important skill, and one surprising fact.</li>
+        <li>Compare all six using the career table.</li>
+        <li>Choose your top three and write one sentence explaining why each interests you.</li>
+      </ol>
+      Do not check off the task until all six career entries and the top-three ranking are finished.
+    </div>
+          <h5 class="memory-heading">What do you remember?</h5>
+          <div class="memory-question" data-correct="0"><strong>1. Which statement is true?</strong><label class="mini-choice"><input type="radio" name="t5_q0" value="0">Healthcare careers use different skills</label><label class="mini-choice"><input type="radio" name="t5_q0" value="1">All careers are identical</label><label class="mini-choice"><input type="radio" name="t5_q0" value="2">Only doctors work in healthcare</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>2. Which professional focuses on medicines?</strong><label class="mini-choice"><input type="radio" name="t5_q1" value="0">Pharmacist</label><label class="mini-choice"><input type="radio" name="t5_q1" value="1">Engineer</label><label class="mini-choice"><input type="radio" name="t5_q1" value="2">Therapist</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>3. What should you compare?</strong><label class="mini-choice"><input type="radio" name="t5_q2" value="0">Daily work and training</label><label class="mini-choice"><input type="radio" name="t5_q2" value="1">Only job titles</label><label class="mini-choice"><input type="radio" name="t5_q2" value="2">Only uniforms</label><div class="memory-feedback"></div></div>
+          <button type="button" class="check-memory">Check all 3 answers</button>
+          <span class="memory-feedback overall" aria-live="polite"></span>
+        </div>
+      </details>
+    </div>
+        <div class="task" data-task-id="t6">
+      <input class="tracker" id="t6" type="checkbox">
+      <label for="t6"><strong>Interview one health professional</strong><small>Ask a parent or guardian to help arrange a 20-minute conversation.</small></label>
+      <details class="task-lesson">
+        <summary>Mini lesson: Career interview preparation</summary>
+        <div class="mini-lesson-body">
+          <h4>Career interview preparation</h4>
+          <div class="mini-lesson-copy">Before interviewing a healthcare professional, prepare questions about a normal day, training, favorite responsibilities, challenges, and advice for students. Listen carefully and write notes afterward. A parent or guardian should help arrange the conversation.</div>
+          <h5 class="memory-heading">What do you remember?</h5>
+          <div class="memory-question" data-correct="0"><strong>1. What should you do before the interview?</strong><label class="mini-choice"><input type="radio" name="t6_q0" value="0">Prepare questions</label><label class="mini-choice"><input type="radio" name="t6_q0" value="1">Ask for a diagnosis</label><label class="mini-choice"><input type="radio" name="t6_q0" value="2">Skip research</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>2. Which is a useful question?</strong><label class="mini-choice"><input type="radio" name="t6_q1" value="0">What does a normal day look like?</label><label class="mini-choice"><input type="radio" name="t6_q1" value="1">Can you share private patient information?</label><label class="mini-choice"><input type="radio" name="t6_q1" value="2">Can you prescribe for me?</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>3. Who should help arrange it?</strong><label class="mini-choice"><input type="radio" name="t6_q2" value="0">A parent or guardian</label><label class="mini-choice"><input type="radio" name="t6_q2" value="1">A stranger</label><label class="mini-choice"><input type="radio" name="t6_q2" value="2">No adult</label><div class="memory-feedback"></div></div>
+          <button type="button" class="check-memory">Check all 3 answers</button>
+          <span class="memory-feedback overall" aria-live="polite"></span>
+        </div>
+      </details>
+    </div>
+        <div class="task" data-task-id="t7">
+      <input class="tracker" id="t7" type="checkbox">
+      <label for="t7"><strong>Create a career scorecard</strong><small>Rate each career on people contact, science, schedule, training, teamwork and your curiosity.</small></label>
+      <details class="task-lesson">
+        <summary>Mini lesson: Career scorecard</summary>
+        <div class="mini-lesson-body">
+          <h4>Career scorecard</h4>
+          <div class="mini-lesson-copy">A career scorecard compares careers using the same categories and scoring scale. Categories can include people contact, teamwork, science, creativity, schedule, and training length. It helps you notice patterns in your interests, but it does not choose a career for you.</div>
+          <h5 class="memory-heading">What do you remember?</h5>
+          <div class="memory-question" data-correct="0"><strong>1. Why use the same categories?</strong><label class="mini-choice"><input type="radio" name="t7_q0" value="0">To compare fairly</label><label class="mini-choice"><input type="radio" name="t7_q0" value="1">To force a tie</label><label class="mini-choice"><input type="radio" name="t7_q0" value="2">To hide differences</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>2. Which could be a category?</strong><label class="mini-choice"><input type="radio" name="t7_q1" value="0">Teamwork</label><label class="mini-choice"><input type="radio" name="t7_q1" value="1">Building color</label><label class="mini-choice"><input type="radio" name="t7_q1" value="2">Number of letters</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>3. What does the scorecard do?</strong><label class="mini-choice"><input type="radio" name="t7_q2" value="0">Shows patterns in your interests</label><label class="mini-choice"><input type="radio" name="t7_q2" value="1">Guarantees a career</label><label class="mini-choice"><input type="radio" name="t7_q2" value="2">Makes the final decision</label><div class="memory-feedback"></div></div>
+          <button type="button" class="check-memory">Check all 3 answers</button>
+          <span class="memory-feedback overall" aria-live="polite"></span>
+        </div>
+      </details>
+    </div>
+        <div class="task" data-task-id="t8">
+      <input class="tracker" id="t8" type="checkbox">
+      <label for="t8"><strong>Watch a healthcare careers video</strong><small>Notice how many hospital jobs are not physicians.</small></label>
+      <details class="task-lesson">
+        <summary>Mini lesson: The whole healthcare team</summary>
+        <div class="mini-lesson-body">
+          <h4>The whole healthcare team</h4>
+          <div class="mini-lesson-copy">Hospitals include many professionals besides physicians: nurses, pharmacists, respiratory therapists, physical therapists, laboratory scientists, imaging technologists, social workers, dietitians, and others. Some work directly with patients; others provide tests, technology, or support.</div>
+          <h5 class="memory-heading">What do you remember?</h5>
+          <div class="memory-question" data-correct="0"><strong>1. Who contributes to hospital care?</strong><label class="mini-choice"><input type="radio" name="t8_q0" value="0">Many professionals</label><label class="mini-choice"><input type="radio" name="t8_q0" value="1">Only physicians</label><label class="mini-choice"><input type="radio" name="t8_q0" value="2">Only surgeons</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>2. Who may help with breathing?</strong><label class="mini-choice"><input type="radio" name="t8_q1" value="0">Respiratory therapist</label><label class="mini-choice"><input type="radio" name="t8_q1" value="1">Architect</label><label class="mini-choice"><input type="radio" name="t8_q1" value="2">Accountant</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>3. Do all roles work directly with patients?</strong><label class="mini-choice"><input type="radio" name="t8_q2" value="0">No</label><label class="mini-choice"><input type="radio" name="t8_q2" value="1">Yes</label><label class="mini-choice"><input type="radio" name="t8_q2" value="2">Only on weekends</label><div class="memory-feedback"></div></div>
+          <button type="button" class="check-memory">Check all 3 answers</button>
+          <span class="memory-feedback overall" aria-live="polite"></span>
+        </div>
+      </details>
+    </div>
       </article>
 
       <article class="card week" data-week="3">
@@ -823,10 +974,66 @@
           <div><div class="week-num">Week 3</div><h3>Think like a researcher</h3></div>
           <div class="time">4–5 hours</div>
         </div>
-        <div class="task"><input class="tracker" id="t9" type="checkbox"><label for="t9"><strong>Choose a middle-school health project</strong><small>Browse Science Buddies or the NIH biomedical-engineering lessons.</small></label></div>
-        <div class="task"><input class="tracker" id="t10" type="checkbox"><label for="t10"><strong>Write a mini research proposal</strong><small>Include your question, hypothesis, variables, materials, steps and what data you would collect.</small></label></div>
-        <div class="task"><input class="tracker" id="t11" type="checkbox"><label for="t11"><strong>Learn why research rules matter</strong><small>Write five sentences about safety, fairness, privacy and honest data recording.</small></label></div>
-        <div class="task"><input class="tracker" id="t12" type="checkbox"><label for="t12"><strong>Make one graph</strong><small>Use your pulse data or a safe sample dataset. Add a clear title and labeled axes.</small></label></div>
+        <div class="task" data-task-id="t9">
+      <input class="tracker" id="t9" type="checkbox">
+      <label for="t9">Read how health researchers form good questions<span class="xp-chip">+25 XP</span><small>Use the short reading inside this task.</small></label>
+      <details class="task-lesson">
+        <summary>Mini lesson: How researchers form questions</summary>
+        <div class="mini-lesson-body">
+          <h4>How researchers form questions</h4>
+          <div class="mini-lesson-copy">Researchers begin by reading what is already known. Then they identify something uncertain. A good research question is clear, focused, and answerable with evidence. It should not assume the answer. Research involving people requires special rules, supervision, and ethical review.</div>
+          <h5 class="memory-heading">What do you remember?</h5>
+          <div class="memory-question" data-correct="0"><strong>1. What should researchers do first?</strong><label class="mini-choice"><input type="radio" name="t9_q0" value="0">Read what is known</label><label class="mini-choice"><input type="radio" name="t9_q0" value="1">Assume the answer</label><label class="mini-choice"><input type="radio" name="t9_q0" value="2">Ignore earlier work</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>2. What makes a good question?</strong><label class="mini-choice"><input type="radio" name="t9_q1" value="0">Clear, focused, evidence-based</label><label class="mini-choice"><input type="radio" name="t9_q1" value="1">Vague</label><label class="mini-choice"><input type="radio" name="t9_q1" value="2">Already answered in the wording</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>3. What does research with people require?</strong><label class="mini-choice"><input type="radio" name="t9_q2" value="0">Rules and ethical review</label><label class="mini-choice"><input type="radio" name="t9_q2" value="1">No oversight</label><label class="mini-choice"><input type="radio" name="t9_q2" value="2">Only a notebook</label><div class="memory-feedback"></div></div>
+          <button type="button" class="check-memory">Check all 3 answers</button>
+          <span class="memory-feedback overall" aria-live="polite"></span>
+        </div>
+      </details>
+    </div>
+        <div class="task" data-task-id="t10">
+      <input class="tracker" id="t10" type="checkbox">
+      <label for="t10">Read the main parts of a research study<span class="xp-chip">+25 XP</span><small>Learn question, hypothesis, variable, results, conclusion, and limitations.</small></label>
+      <details class="task-lesson">
+        <summary>Mini lesson: Parts of a research study</summary>
+        <div class="mini-lesson-body">
+          <h4>Parts of a research study</h4>
+          <div class="mini-lesson-copy">A study begins with a question. A hypothesis is a reasoned prediction. A variable is something that changes or is measured. Results report what the data showed. A conclusion explains what the results may mean. Limitations describe factors that may have affected the study.</div>
+          <h5 class="memory-heading">What do you remember?</h5>
+          <div class="memory-question" data-correct="0"><strong>1. What is a hypothesis?</strong><label class="mini-choice"><input type="radio" name="t10_q0" value="0">A reasoned prediction</label><label class="mini-choice"><input type="radio" name="t10_q0" value="1">A final answer</label><label class="mini-choice"><input type="radio" name="t10_q0" value="2">A title</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>2. What do results report?</strong><label class="mini-choice"><input type="radio" name="t10_q1" value="0">What the data showed</label><label class="mini-choice"><input type="radio" name="t10_q1" value="1">What the researcher wanted</label><label class="mini-choice"><input type="radio" name="t10_q1" value="2">Only the question</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>3. What are limitations?</strong><label class="mini-choice"><input type="radio" name="t10_q2" value="0">Factors that may affect the study</label><label class="mini-choice"><input type="radio" name="t10_q2" value="1">Proof the study failed</label><label class="mini-choice"><input type="radio" name="t10_q2" value="2">The same as results</label><div class="memory-feedback"></div></div>
+          <button type="button" class="check-memory">Check all 3 answers</button>
+          <span class="memory-feedback overall" aria-live="polite"></span>
+        </div>
+      </details>
+    </div>
+        <div class="task" data-task-id="t11">
+      <input class="tracker" id="t11" type="checkbox">
+      <label for="t11"><strong>Learn why research rules matter</strong><small>Write five sentences about safety, fairness, privacy and honest data recording.</small></label>
+      <details class="task-lesson">
+        <summary>Mini lesson: Why research rules matter</summary>
+        <div class="mini-lesson-body">
+          <h4>Why research rules matter</h4>
+          <div class="mini-lesson-copy">Research rules protect people and make findings trustworthy. Safety reduces risk. Fairness reduces bias. Privacy protects personal information. Honest recording means keeping accurate results, including unexpected ones.</div>
+          <h5 class="memory-heading">What do you remember?</h5>
+          <div class="memory-question" data-correct="0"><strong>1. What does privacy protect?</strong><label class="mini-choice"><input type="radio" name="t11_q0" value="0">Personal information</label><label class="mini-choice"><input type="radio" name="t11_q0" value="1">Only equipment</label><label class="mini-choice"><input type="radio" name="t11_q0" value="2">Predictions</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>2. What should happen to unexpected results?</strong><label class="mini-choice"><input type="radio" name="t11_q1" value="0">Record them honestly</label><label class="mini-choice"><input type="radio" name="t11_q1" value="1">Delete them</label><label class="mini-choice"><input type="radio" name="t11_q1" value="2">Change them</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>3. How does fairness help?</strong><label class="mini-choice"><input type="radio" name="t11_q2" value="0">Reduces bias</label><label class="mini-choice"><input type="radio" name="t11_q2" value="1">Hides data</label><label class="mini-choice"><input type="radio" name="t11_q2" value="2">Removes evidence</label><div class="memory-feedback"></div></div>
+          <button type="button" class="check-memory">Check all 3 answers</button>
+          <span class="memory-feedback overall" aria-live="polite"></span>
+        </div>
+      </details>
+    </div>
+        <div class="task" data-task-id="t12">
+      <input class="tracker" id="t12" type="checkbox">
+      <label for="t12">Read how scientists use tables and graphs<span class="xp-chip">+25 XP</span><small>Focus on titles, axes, labels, units, and graph types.</small></label>
+      <details class="task-lesson">
+        <summary>Mini lesson: Tables and graphs</summary>
+        <div class="mini-lesson-body">
+          <h4>Tables and graphs</h4>
+          <div class="mini-lesson-copy">Tables organize exact values in rows and columns. Graphs make patterns easier to see. Every graph should have a clear title, labeled axes, and units when measurements are used. Bar graphs compare categories. Line graphs often show change over time.</div>
+          <h5 class="memory-heading">What do you remember?</h5>
+          <div class="memory-question" data-correct="0"><strong>1. What do tables organize?</strong><label class="mini-choice"><input type="radio" name="t12_q0" value="0">Exact values</label><label class="mini-choice"><input type="radio" name="t12_q0" value="1">Only pictures</label><label class="mini-choice"><input type="radio" name="t12_q0" value="2">Stories</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>2. What should every graph include?</strong><label class="mini-choice"><input type="radio" name="t12_q1" value="0">Title and labeled axes</label><label class="mini-choice"><input type="radio" name="t12_q1" value="1">Decorations only</label><label class="mini-choice"><input type="radio" name="t12_q1" value="2">No units</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>3. Which graph often shows change over time?</strong><label class="mini-choice"><input type="radio" name="t12_q2" value="0">Line graph</label><label class="mini-choice"><input type="radio" name="t12_q2" value="1">Bar graph only</label><label class="mini-choice"><input type="radio" name="t12_q2" value="2">No graph</label><div class="memory-feedback"></div></div>
+          <button type="button" class="check-memory">Check all 3 answers</button>
+          <span class="memory-feedback overall" aria-live="polite"></span>
+        </div>
+      </details>
+    </div>
       </article>
 
       <article class="card week" data-week="4">
@@ -834,10 +1041,66 @@
           <div><div class="week-num">Week 4</div><h3>Help, reflect and present</h3></div>
           <div class="time">3–5 hours</div>
         </div>
-        <div class="task"><input class="tracker" id="t13" type="checkbox"><label for="t13"><strong>Complete one service action</strong><small>Examples: food pantry help, hygiene-kit drive, tutoring or making a health-literacy poster from official sources.</small></label></div>
-        <div class="task"><input class="tracker" id="t14" type="checkbox"><label for="t14"><strong>Explore CPR/first-aid training with a parent</strong><small>Find a local Red Cross class. Do not practice rescue techniques without qualified instruction.</small></label></div>
-        <div class="task"><input class="tracker" id="t15" type="checkbox"><label for="t15"><strong>Visit or virtually explore a science destination</strong><small>Recommended local option: the Museum of Science Hall of Human Life.</small></label></div>
-        <div class="task"><input class="tracker" id="t16" type="checkbox"><label for="t16"><strong>Give a five-minute “grand rounds” presentation</strong><small>Tell your family what you explored, your top three careers and your next question.</small></label></div>
+        <div class="task" data-task-id="t13">
+      <input class="tracker" id="t13" type="checkbox">
+      <label for="t13"><strong>Complete one service action</strong><small>Examples: food pantry help, hygiene-kit drive, tutoring or making a health-literacy poster from official sources.</small></label>
+      <details class="task-lesson">
+        <summary>Mini lesson: Service that supports health</summary>
+        <div class="mini-lesson-body">
+          <h4>Service that supports health</h4>
+          <div class="mini-lesson-copy">Students can support community health by helping at a food pantry, assembling hygiene kits, tutoring, or making health-literacy materials from reliable sources. Work should be supervised by a responsible adult or organization. Students should not diagnose people or tell them to change medicine.</div>
+          <h5 class="memory-heading">What do you remember?</h5>
+          <div class="memory-question" data-correct="0"><strong>1. Which is appropriate?</strong><label class="mini-choice"><input type="radio" name="t13_q0" value="0">Assembling hygiene kits</label><label class="mini-choice"><input type="radio" name="t13_q0" value="1">Changing medicine</label><label class="mini-choice"><input type="radio" name="t13_q0" value="2">Diagnosing illness</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>2. What should health materials use?</strong><label class="mini-choice"><input type="radio" name="t13_q1" value="0">Reliable sources</label><label class="mini-choice"><input type="radio" name="t13_q1" value="1">Rumors</label><label class="mini-choice"><input type="radio" name="t13_q1" value="2">Anonymous posts</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>3. What should students avoid?</strong><label class="mini-choice"><input type="radio" name="t13_q2" value="0">Diagnosing people</label><label class="mini-choice"><input type="radio" name="t13_q2" value="1">Helping at a pantry</label><label class="mini-choice"><input type="radio" name="t13_q2" value="2">Tutoring</label><div class="memory-feedback"></div></div>
+          <button type="button" class="check-memory">Check all 3 answers</button>
+          <span class="memory-feedback overall" aria-live="polite"></span>
+        </div>
+      </details>
+    </div>
+        <div class="task" data-task-id="t14">
+      <input class="tracker" id="t14" type="checkbox">
+      <label for="t14"><strong>Explore CPR/first-aid training with a parent</strong><small>Find a local Red Cross class. Do not practice rescue techniques without qualified instruction.</small></label>
+      <details class="task-lesson">
+        <summary>Mini lesson: CPR and first aid</summary>
+        <div class="mini-lesson-body">
+          <h4>CPR and first aid</h4>
+          <div class="mini-lesson-copy">CPR and first aid should be learned from qualified instructors. A certified class teaches correct technique, safety, and when to call emergency services. Reading helps you understand the purpose, but rescue techniques require proper instruction and supervision.</div>
+          <h5 class="memory-heading">What do you remember?</h5>
+          <div class="memory-question" data-correct="0"><strong>1. Who should teach CPR?</strong><label class="mini-choice"><input type="radio" name="t14_q0" value="0">Qualified instructors</label><label class="mini-choice"><input type="radio" name="t14_q0" value="1">Anyone guessing</label><label class="mini-choice"><input type="radio" name="t14_q0" value="2">Social media only</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>2. What does a certified class teach?</strong><label class="mini-choice"><input type="radio" name="t14_q1" value="0">Technique, safety, and when to call for help</label><label class="mini-choice"><input type="radio" name="t14_q1" value="1">How to diagnose</label><label class="mini-choice"><input type="radio" name="t14_q1" value="2">How to avoid help</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>3. Is reading alone enough to practice rescue techniques?</strong><label class="mini-choice"><input type="radio" name="t14_q2" value="0">No</label><label class="mini-choice"><input type="radio" name="t14_q2" value="1">Yes</label><label class="mini-choice"><input type="radio" name="t14_q2" value="2">Always for children</label><div class="memory-feedback"></div></div>
+          <button type="button" class="check-memory">Check all 3 answers</button>
+          <span class="memory-feedback overall" aria-live="polite"></span>
+        </div>
+      </details>
+    </div>
+        <div class="task" data-task-id="t15">
+      <input class="tracker" id="t15" type="checkbox">
+      <label for="t15"><strong>Visit or virtually explore a science destination</strong><small>Recommended local option: the Museum of Science Hall of Human Life.</small></label>
+      <details class="task-lesson">
+        <summary>Mini lesson: Museum or virtual exhibit</summary>
+        <div class="mini-lesson-body">
+          <h4>Museum or virtual exhibit</h4>
+          <div class="mini-lesson-copy">Before visiting a science museum or virtual exhibit, prepare two questions. During the visit, record three facts and one surprising exhibit. Afterward, explain how the experience connected to something you learned in the book.</div>
+          <h5 class="memory-heading">What do you remember?</h5>
+          <div class="memory-question" data-correct="0"><strong>1. What should you prepare first?</strong><label class="mini-choice"><input type="radio" name="t15_q0" value="0">Two questions</label><label class="mini-choice"><input type="radio" name="t15_q0" value="1">A diagnosis</label><label class="mini-choice"><input type="radio" name="t15_q0" value="2">Nothing</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>2. What should you record?</strong><label class="mini-choice"><input type="radio" name="t15_q1" value="0">Facts and one surprising exhibit</label><label class="mini-choice"><input type="radio" name="t15_q1" value="1">Only prices</label><label class="mini-choice"><input type="radio" name="t15_q1" value="2">Nothing</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>3. What should you do afterward?</strong><label class="mini-choice"><input type="radio" name="t15_q2" value="0">Connect it to the book</label><label class="mini-choice"><input type="radio" name="t15_q2" value="1">Forget it</label><label class="mini-choice"><input type="radio" name="t15_q2" value="2">Copy someone else&#x27;s notes</label><div class="memory-feedback"></div></div>
+          <button type="button" class="check-memory">Check all 3 answers</button>
+          <span class="memory-feedback overall" aria-live="polite"></span>
+        </div>
+      </details>
+    </div>
+        <div class="task" data-task-id="t16">
+      <input class="tracker" id="t16" type="checkbox">
+      <label for="t16"><strong>Give a five-minute “grand rounds” presentation</strong><small>Tell your family what you explored, your top three careers and your next question.</small></label>
+      <details class="task-lesson">
+        <summary>Mini lesson: Five-minute grand rounds</summary>
+        <div class="mini-lesson-body">
+          <h4>Five-minute grand rounds</h4>
+          <div class="mini-lesson-copy">Your presentation should explain what you explored, one important lesson, three careers that interested you, what surprised you, and what you want to learn next. A clear presentation has an opening, organized main points, and a conclusion.</div>
+          <h5 class="memory-heading">What do you remember?</h5>
+          <div class="memory-question" data-correct="0"><strong>1. What should the presentation include?</strong><label class="mini-choice"><input type="radio" name="t16_q0" value="0">What you learned and what comes next</label><label class="mini-choice"><input type="radio" name="t16_q0" value="1">Only unrelated facts</label><label class="mini-choice"><input type="radio" name="t16_q0" value="2">Only a title</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>2. How many careers should you discuss?</strong><label class="mini-choice"><input type="radio" name="t16_q1" value="0">Three</label><label class="mini-choice"><input type="radio" name="t16_q1" value="1">Zero</label><label class="mini-choice"><input type="radio" name="t16_q1" value="2">Ten</label><div class="memory-feedback"></div></div><div class="memory-question" data-correct="0"><strong>3. What makes the presentation clear?</strong><label class="mini-choice"><input type="radio" name="t16_q2" value="0">Opening, organized points, conclusion</label><label class="mini-choice"><input type="radio" name="t16_q2" value="1">Reading quickly</label><label class="mini-choice"><input type="radio" name="t16_q2" value="2">No structure</label><div class="memory-feedback"></div></div>
+          <button type="button" class="check-memory">Check all 3 answers</button>
+          <span class="memory-feedback overall" aria-live="polite"></span>
+        </div>
+      </details>
+    </div>
       </article>
     </div>
 
@@ -1192,113 +1455,312 @@
   </div>
 </footer>
 
-<script>
-  const careerMap = {
-    people: ["Physician", "Nurse", "Physician Assistant", "Child Life Specialist"],
-    science: ["Biomedical Researcher", "Pathologist", "Pharmacist", "Medical Laboratory Scientist"],
-    tech: ["Biomedical Engineer", "Health Software Developer", "Radiologic Technologist", "Clinical Informatics Specialist"],
-    movement: ["Physical Therapist", "Sports Medicine Physician", "Occupational Therapist", "Athletic Trainer"],
-    community: ["Public Health Epidemiologist", "School Nurse", "Health Educator", "Environmental Health Scientist"],
-    details: ["Pharmacist", "Medical Laboratory Scientist", "Radiologist", "Health Information Specialist"],
-    communication: ["Pediatrician", "Genetic Counselor", "Speech-Language Pathologist", "Health Educator"]
-  };
 
-  function scoreQuiz(){
-    const checked = [...document.querySelectorAll('#quizForm input:checked')].map(x => x.value);
-    const result = document.getElementById('quizResult');
-    if(!checked.length){
-      result.style.display = 'block';
-      result.innerHTML = "<strong>Choose at least one statement.</strong> There are no wrong answers.";
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+
+  const TASK_XP = 25;
+  const TASK_SHELLS = 5;
+  const QUIZ_XP = 15;
+  const QUIZ_SHELLS = 3;
+
+  const trackers = Array.from(document.querySelectorAll('.tracker'));
+  const lessonTasks = Array.from(document.querySelectorAll('[data-task-id]'));
+
+  function taskKey(id) {
+    return 'medexplorer-' + id;
+  }
+
+  function quizKey(id) {
+    return 'memoryLesson_' + id;
+  }
+
+  function showReward(message) {
+    const pop = document.getElementById('levelPop');
+    const popText = document.getElementById('levelPopText');
+
+    if (pop && popText) {
+      popText.textContent = message;
+      pop.classList.add('show');
+      window.setTimeout(function () {
+        pop.classList.remove('show');
+      }, 1800);
       return;
     }
-    const counts = {};
-    checked.forEach(key => careerMap[key].forEach(c => counts[c] = (counts[c] || 0) + 1));
-    const top = Object.entries(counts).sort((a,b) => b[1]-a[1] || a[0].localeCompare(b[0])).slice(0,6);
-    result.style.display = 'block';
-    result.innerHTML = `<strong>Your first careers to investigate:</strong><ol>${top.map(x=>`<li>${x[0]}</li>`).join('')}</ol>
-      <span class="tiny">Pick three. For each one, learn what a normal day looks like, the education required, the hardest part and what professionals enjoy most.</span>`;
+
+    let toast = document.getElementById('rewardToast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'rewardToast';
+      toast.style.position = 'fixed';
+      toast.style.right = '20px';
+      toast.style.bottom = '20px';
+      toast.style.zIndex = '99999';
+      toast.style.background = '#173b59';
+      toast.style.color = '#fff';
+      toast.style.padding = '14px 18px';
+      toast.style.borderRadius = '14px';
+      toast.style.fontWeight = '900';
+      toast.style.boxShadow = '0 18px 55px rgba(20,44,67,.28)';
+      document.body.appendChild(toast);
+    }
+
+    toast.textContent = message;
+    toast.hidden = false;
+    window.setTimeout(function () {
+      toast.hidden = true;
+    }, 1800);
   }
 
-  function resetQuiz(){
-    const result = document.getElementById('quizResult');
-    result.style.display = 'none';
-    result.innerHTML = '';
+  function totals() {
+    const checkedTasks = trackers.filter(function (box) {
+      return box.checked;
+    }).length;
+
+    const completedQuizzes = lessonTasks.filter(function (task) {
+      return localStorage.getItem(quizKey(task.dataset.taskId)) === 'complete';
+    }).length;
+
+    return {
+      checkedTasks: checkedTasks,
+      completedQuizzes: completedQuizzes,
+      xp: checkedTasks * TASK_XP + completedQuizzes * QUIZ_XP,
+      shells: checkedTasks * TASK_SHELLS + completedQuizzes * QUIZ_SHELLS,
+      completedItems: checkedTasks + completedQuizzes,
+      totalItems: trackers.length + lessonTasks.length
+    };
   }
 
-  const trackers = [...document.querySelectorAll('.tracker')];
+  function updateRewards() {
+    const t = totals();
+    const progressPercent = t.totalItems
+      ? Math.round((t.completedItems / t.totalItems) * 100)
+      : 0;
+    const maximumXP = trackers.length * TASK_XP + lessonTasks.length * QUIZ_XP;
+    const xpPercent = maximumXP ? Math.round((t.xp / maximumXP) * 100) : 0;
 
-  function loadProgress(){
-    trackers.forEach(box => {
-      box.checked = localStorage.getItem('medexplorer-' + box.id) === 'true';
-      box.addEventListener('change', () => {
-        localStorage.setItem('medexplorer-' + box.id, box.checked);
-        updateProgress();
-      });
+    const progressFill = document.getElementById('progressFill');
+    const progressNumber = document.getElementById('progressNumber');
+    const xpFill = document.getElementById('xpFill');
+    const xpText = document.getElementById('xpText');
+    const shellCount = document.getElementById('shellCount');
+    const levelName = document.getElementById('levelName');
+
+    if (progressFill) {
+      progressFill.style.width = progressPercent + '%';
+    }
+    if (progressNumber) {
+      progressNumber.textContent = progressPercent + '%';
+    }
+    if (xpFill) {
+      xpFill.style.width = xpPercent + '%';
+    }
+    if (xpText) {
+      xpText.textContent = t.xp + ' XP';
+    }
+    if (shellCount) {
+      shellCount.textContent = t.shells + ' 🐚';
+    }
+    if (levelName) {
+      if (t.xp >= 400) levelName.textContent = 'Level 5 · Medical Explorer';
+      else if (t.xp >= 300) levelName.textContent = 'Level 4 · Care Champion';
+      else if (t.xp >= 200) levelName.textContent = 'Level 3 · Science Investigator';
+      else if (t.xp >= 100) levelName.textContent = 'Level 2 · Thoughtful Researcher';
+      else levelName.textContent = 'Level 1 · Curious Explorer';
+    }
+
+    document.querySelectorAll('.reward').forEach(function (reward) {
+      reward.classList.toggle(
+        'unlocked',
+        t.xp >= Number(reward.dataset.xp || 0)
+      );
     });
-    updateProgress();
   }
 
-  const XP_PER_MISSION = 25;
-  const levels = [
-    {min:0, name:"Level 1 · Curious Explorer"},
-    {min:100, name:"Level 2 · Thoughtful Researcher"},
-    {min:200, name:"Level 3 · Science Investigator"},
-    {min:300, name:"Level 4 · Care Champion"},
-    {min:400, name:"Level 5 · Medical Explorer"}
-  ];
+  // Restore saved task checkmarks.
+  trackers.forEach(function (box) {
+    box.checked = localStorage.getItem(taskKey(box.id)) === 'true';
+  });
 
-  trackers.forEach(box => {
-    const task = box.closest('.task');
-    if(task && !task.querySelector('.xp-chip')){
-      const chip = document.createElement('span');
-      chip.className = 'xp-chip';
-      chip.textContent = '+25 XP';
-      task.querySelector('label')?.prepend(chip);
+  // Restore completed quiz styling.
+  lessonTasks.forEach(function (task) {
+    if (localStorage.getItem(quizKey(task.dataset.taskId)) === 'complete') {
+      task.classList.add('lesson-finished');
+      const overall = task.querySelector('.memory-feedback.overall');
+      if (overall) {
+        overall.textContent = 'Memory check completed.';
+        overall.className = 'memory-feedback overall good';
+      }
     }
   });
 
-  function updateProgress(){
-    const completed = trackers.filter(x => x.checked).length;
-    const pct = trackers.length ? Math.round((completed / trackers.length) * 100) : 0;
-    const xp = completed * XP_PER_MISSION;
-    const maxXp = Math.max(trackers.length * XP_PER_MISSION, 400);
-    document.getElementById('progressFill').style.width = pct + '%';
-    document.getElementById('progressNumber').textContent = pct + '%';
-    document.getElementById('xpText').textContent = xp + ' XP';
-    document.getElementById('shellCount').textContent = completed + ' 🐚';
-    document.getElementById('xpFill').style.width = Math.min(100,(xp/maxXp)*100) + '%';
-    const currentLevel = [...levels].reverse().find(level => xp >= level.min) || levels[0];
-    document.getElementById('levelName').textContent = currentLevel.name;
-    document.querySelectorAll('.reward').forEach(reward => {
-      const wasUnlocked = reward.classList.contains('unlocked');
-      const unlocked = xp >= Number(reward.dataset.xp);
-      reward.classList.toggle('unlocked', unlocked);
-      if(unlocked && !wasUnlocked && localStorage.getItem('medexplorer-seen-'+reward.dataset.xp) !== 'true'){
-        localStorage.setItem('medexplorer-seen-'+reward.dataset.xp,'true');
-        showReward(reward.textContent.trim());
+  // Task rewards.
+  document.addEventListener('change', function (event) {
+    if (!event.target.classList.contains('tracker')) return;
+
+    const box = event.target;
+    const key = taskKey(box.id);
+    const previouslyCompleted = localStorage.getItem(key) === 'true';
+
+    localStorage.setItem(key, box.checked ? 'true' : 'false');
+
+    if (box.checked && !previouslyCompleted) {
+      showReward('+25 XP · +5 🐚');
+    }
+
+    updateRewards();
+  });
+
+  // Memory quiz checking and rewards.
+  document.addEventListener('click', function (event) {
+    const button = event.target.closest('.check-memory');
+    if (!button) return;
+
+    const task = button.closest('[data-task-id]');
+    const questions = Array.from(task.querySelectorAll('.memory-question'));
+    let correct = 0;
+    let answered = 0;
+
+    questions.forEach(function (question) {
+      const selected = question.querySelector('input[type="radio"]:checked');
+      const feedback = question.querySelector('.memory-feedback');
+
+      if (!selected) {
+        feedback.textContent = 'Choose an answer.';
+        feedback.className = 'memory-feedback bad';
+        return;
+      }
+
+      answered += 1;
+
+      if (Number(selected.value) === Number(question.dataset.correct)) {
+        correct += 1;
+        feedback.textContent = 'Correct';
+        feedback.className = 'memory-feedback good';
+      } else {
+        feedback.textContent = 'Try again';
+        feedback.className = 'memory-feedback bad';
       }
     });
-  }
 
-  function showReward(text){
-    const pop = document.getElementById('levelPop');
-    document.getElementById('levelPopText').textContent = text;
-    pop.classList.add('show');
-    setTimeout(()=>pop.classList.remove('show'),1800);
-  }
+    const overall = task.querySelector('.memory-feedback.overall');
+    const key = quizKey(task.dataset.taskId);
+    const previouslyCompleted = localStorage.getItem(key) === 'complete';
 
-  function resetProgress(){
-    if(confirm('Clear all summer challenge checkmarks?')){
-      trackers.forEach(box => {
-        box.checked = false;
-        localStorage.removeItem('medexplorer-' + box.id);
-      });
-      document.querySelectorAll('.reward').forEach(r => localStorage.removeItem('medexplorer-seen-'+r.dataset.xp));
-      updateProgress();
+    if (answered === questions.length && correct === questions.length) {
+      overall.textContent = 'Great memory check — lesson complete!';
+      overall.className = 'memory-feedback overall good';
+      task.classList.add('lesson-finished');
+      localStorage.setItem(key, 'complete');
+
+      if (!previouslyCompleted) {
+        showReward('+15 XP · +3 🐚');
+      }
+    } else {
+      overall.textContent =
+        correct + ' of ' + questions.length +
+        ' correct. Review the lesson and retry.';
+      overall.className = 'memory-feedback overall bad';
     }
-  }
 
-  loadProgress();
+    updateRewards();
+  });
+
+  // Keep the existing reset button functional.
+  window.resetProgress = function () {
+    if (!window.confirm('Clear all summer challenge checkmarks and rewards?')) {
+      return;
+    }
+
+    trackers.forEach(function (box) {
+      box.checked = false;
+      localStorage.removeItem(taskKey(box.id));
+    });
+
+    lessonTasks.forEach(function (task) {
+      localStorage.removeItem(quizKey(task.dataset.taskId));
+      task.classList.remove('lesson-finished');
+      task.querySelectorAll('input[type="radio"]').forEach(function (radio) {
+        radio.checked = false;
+      });
+      task.querySelectorAll('.memory-feedback').forEach(function (feedback) {
+        feedback.textContent = '';
+        feedback.className = feedback.classList.contains('overall')
+          ? 'memory-feedback overall'
+          : 'memory-feedback';
+      });
+    });
+
+    document.querySelectorAll('.reward').forEach(function (reward) {
+      reward.classList.remove('unlocked');
+    });
+
+    updateRewards();
+  };
+
+  // Keep the existing career-interest quiz functional.
+  const careerMap = {
+    people: ['Physician', 'Nurse', 'Physician Assistant', 'Child Life Specialist'],
+    science: ['Biomedical Researcher', 'Pathologist', 'Pharmacist', 'Medical Laboratory Scientist'],
+    tech: ['Biomedical Engineer', 'Health Software Developer', 'Radiologic Technologist', 'Clinical Informatics Specialist'],
+    movement: ['Physical Therapist', 'Sports Medicine Physician', 'Occupational Therapist', 'Athletic Trainer'],
+    community: ['Public Health Epidemiologist', 'School Nurse', 'Health Educator', 'Environmental Health Scientist'],
+    details: ['Pharmacist', 'Medical Laboratory Scientist', 'Radiologist', 'Health Information Specialist'],
+    communication: ['Pediatrician', 'Genetic Counselor', 'Speech-Language Pathologist', 'Health Educator']
+  };
+
+  window.scoreQuiz = function () {
+    const checked = Array.from(
+      document.querySelectorAll('#quizForm input:checked')
+    ).map(function (item) {
+      return item.value;
+    });
+
+    const result = document.getElementById('quizResult');
+
+    if (!checked.length) {
+      result.style.display = 'block';
+      result.innerHTML =
+        '<strong>Choose at least one statement.</strong> There are no wrong answers.';
+      return;
+    }
+
+    const counts = {};
+    checked.forEach(function (key) {
+      careerMap[key].forEach(function (career) {
+        counts[career] = (counts[career] || 0) + 1;
+      });
+    });
+
+    const top = Object.entries(counts)
+      .sort(function (a, b) {
+        return b[1] - a[1] || a[0].localeCompare(b[0]);
+      })
+      .slice(0, 6);
+
+    result.style.display = 'block';
+    result.innerHTML =
+      '<strong>Your first careers to investigate:</strong><ol>' +
+      top.map(function (item) {
+        return '<li>' + item[0] + '</li>';
+      }).join('') +
+      '</ol><span class="tiny">Pick three. For each one, learn what a normal day looks like, the education required, the hardest part and what professionals enjoy most.</span>';
+  };
+
+  window.resetQuiz = function () {
+    const result = document.getElementById('quizResult');
+    result.style.display = 'none';
+    result.innerHTML = '';
+  };
+
+  updateRewards();
+});
 </script>
+
 </body>
 </html>
